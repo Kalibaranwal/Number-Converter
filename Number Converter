@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+#include <algorithm>
+using namespace std;
+
+// Function to convert decimal to binary
+string decimalToBinary(int num) {
+    if (num == 0) return "0";
+    string binary = "";
+    while (num > 0) {
+        binary += (num % 2 == 0) ? "0" : "1";
+        num /= 2;
+    }
+    reverse(binary.begin(), binary.end());
+    return binary;
+}
+
+// Function to convert decimal to hexadecimal
+string decimalToHexadecimal(int num) {
+    if (num == 0) return "0";
+    string hex = "";
+    string hexDigits = "0123456789ABCDEF";
+    while (num > 0) {
+        hex += hexDigits[num % 16];
+        num /= 16;
+    }
+    reverse(hex.begin(), hex.end());
+    return hex;
+}
+
+int main() {
+    int decimalNumber = 255;
+
+    // Convert decimal to binary
+    cout << "Decimal: " << decimalNumber << endl;
+    cout << "Binary: " << decimalToBinary(decimalNumber) << endl;
+
+    // Convert decimal to hexadecimal
+    cout << "Hexadecimal: " << decimalToHexadecimal(decimalNumber) << endl;
+
+    return 0;
+}
